@@ -34,16 +34,29 @@ console.log(`It will take ${spacecraftName} ${getDaysToLocation(kilometersToMars
 
 // Part 4: Create a Spacecraft Class
 
+ class Spacecraft {
+     milesPerKilometer: number = 0.621;
+     name: string;
+     speedMph: number;
 
+     constructor(name: string, speed: number) {
+         this.name = name;
+         this.speedMph = speed;
+     }
+     getDaysToLocation(kilometersAway: number): number {
+        return ((kilometersAway * this.milesPerKilometer) / this.speedMph) / 24 ;
+    }
+ }
 
 // Create an instance of the class here:
 
-
+let spaceShuttle = new Spacecraft('Determination', 17500);
 
 // Move your output statements from part 3 here. Update the template literals use the
 // instance of the class.
 
-
+console.log(`It will take ${spaceShuttle.name} ${spaceShuttle.getDaysToLocation(kilometersToMars)} days to reach Mars`);
+console.log(`It will take ${spaceShuttle.name} ${spaceShuttle.getDaysToLocation(kilometersToTheMoon)} days to reach the Moon`);
 
 // Part 5: Export and Import the SpaceLocation Class
 // Add the required import statement BEFORE the part 1 concent.
